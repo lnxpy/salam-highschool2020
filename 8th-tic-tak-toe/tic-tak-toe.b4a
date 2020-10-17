@@ -1,0 +1,177 @@
+﻿Build1=Default,b4a.example
+File1=layout1.bal
+FileGroup1=Default Group
+Group=Default Group
+Library1=core
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="28"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~
+NumberOfFiles=1
+NumberOfLibraries=1
+NumberOfModules=0
+Version=9.9
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Tic Tak Toe
+	#VersionCode: 1
+	#VersionName: v1.0
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+
+	Private turn As Boolean = True
+	Private lbl_p1point As Label
+	Private lbl_p2point As Label
+	Private btn_cell1 As Button
+	Private btn_cell2 As Button
+	Private btn_cell3 As Button
+	Private btn_cell4 As Button
+	Private btn_cell5 As Button
+	Private btn_cell6 As Button
+	Private btn_cell7 As Button
+	Private btn_cell8 As Button
+	Private btn_cell9 As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("Layout1")
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub clear_all
+	btn_cell1.Text = ""
+	btn_cell2.Text = ""
+	btn_cell3.Text = ""
+	btn_cell4.Text = ""
+	btn_cell5.Text = ""
+	btn_cell6.Text = ""
+	btn_cell7.Text = ""
+	btn_cell8.Text = ""
+	btn_cell9.Text = ""
+End Sub
+
+Sub btn_winfor2_Click
+	Dim score As Int = lbl_p2point.Text + 1
+	lbl_p2point.Text = score
+	clear_all
+End Sub
+
+Sub btn_winfor1_Click
+	Dim score As Int = lbl_p1point.Text + 1
+	lbl_p1point.Text = score
+	clear_all
+End Sub
+
+Sub btn_cell9_Click
+	If turn Then
+		btn_cell9.Text = "X"
+		turn = False
+	Else
+		btn_cell9.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell8_Click
+	If turn Then
+		btn_cell8.Text = "X"
+		turn = False
+	Else
+		btn_cell8.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell7_Click
+	If turn Then
+		btn_cell7.Text = "X"
+		turn = False
+	Else
+		btn_cell7.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell6_Click
+	If turn Then
+		btn_cell6.Text = "X"
+		turn = False
+	Else
+		btn_cell6.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell5_Click
+	If turn Then
+		btn_cell5.Text = "X"
+		turn = False
+	Else
+		btn_cell5.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell4_Click
+	If turn Then
+		btn_cell4.Text = "X"
+		turn = False
+	Else
+		btn_cell4.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell3_Click
+	If turn Then
+		btn_cell3.Text = "X"
+		turn = False
+	Else
+		btn_cell3.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell2_Click
+	If turn Then
+		btn_cell2.Text = "X"
+		turn = False
+	Else
+		btn_cell2.Text = "O"
+		turn = True
+	End If
+End Sub
+
+Sub btn_cell1_Click
+	If turn Then
+		btn_cell1.Text = "X"
+		turn = False
+	Else
+		btn_cell1.Text = "O"
+		turn = True
+	End If
+End Sub

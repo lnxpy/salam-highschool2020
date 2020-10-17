@@ -1,0 +1,80 @@
+﻿Build1=Default,b4a.example
+File1=layout1.bal
+File2=Vazir-Light-FD-WOL.ttf
+File3=Vazir-Medium-FD-WOL.ttf
+FileGroup1=Default Group
+FileGroup2=New Group
+FileGroup3=New Group
+Group=Default Group
+Library1=core
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="28"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~
+NumberOfFiles=3
+NumberOfLibraries=1
+NumberOfModules=0
+Version=9.9
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: COVID-19 Test
+	#VersionCode: 1
+	#VersionName: v1.0
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private edt_q1 As EditText
+	Private edt_q2 As EditText
+	Private edt_q3 As EditText
+	Private edt_q4 As EditText
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("layout1")
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
+Sub btn_submit_Click
+	Try
+		Dim sum As Int = edt_q1.Text + edt_q2.Text + edt_q3.Text + edt_q4.Text
+	Catch
+		ToastMessageShow("تمام سوالات را پاسخ دهید", True)
+		Return
+	End Try
+	
+	If sum>=0 And sum <= 5 Then
+		ToastMessageShow("مراقبت بیشتر و در خانه ماندن", True)
+	Else If sum > 5 And sum <= 10 Then
+		ToastMessageShow("امکان ناقل بودن", True)
+	Else If sum > 10 And sum <= 15 Then
+		ToastMessageShow("مشکوک به ابتلا به کرونا یا آنفولانزا", True)
+	Else If sum > 15 And sum <= 20 Then
+		ToastMessageShow("لطفا هرچه سریعتر با پزشک تماس بگیرید. وضعیت خطرناک", True)
+	Else
+		ToastMessageShow("لطفا پاسخ ها را بررسی کنید", True)
+	End If
+End Sub
